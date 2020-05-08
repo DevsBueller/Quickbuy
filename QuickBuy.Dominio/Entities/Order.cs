@@ -7,7 +7,7 @@ using System.Text;
 
 namespace QuickBuy.Dominio.Entities
 {
-	class Order : Entity
+	public class Order : Entity
 	{
 		public int Id { get; set; }
 		public DateTime Date { get; set; }
@@ -33,6 +33,10 @@ namespace QuickBuy.Dominio.Entities
 			if (string.IsNullOrEmpty(CEP))
 			{
 				AddCritic("Erro - O Cep Deve estar Preenchido");
+			}
+			if (PaymentFormId == 0)
+			{
+				AddCritic("Erro - Não foi informada a forma de pagamento");
 			}
 		}
 	}

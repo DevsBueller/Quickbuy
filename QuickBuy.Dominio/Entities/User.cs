@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Permissions;
 using System.Text;
 
 namespace QuickBuy.Dominio.Entities
 {
-	class User : Entity
+	public class User : Entity
 	{
 		public int Id { get; set; }
 		public string Email { get; set; }
@@ -15,7 +16,14 @@ namespace QuickBuy.Dominio.Entities
 
 		protected override void Validate()
 		{
-			throw new NotImplementedException();
+			if (string.IsNullOrEmpty(Email))
+			{
+				AddCritic("Emai não foi informado");
+			}
+			if (string.IsNullOrEmpty(Password))
+			{
+				AddCritic("Senha não foi informada");   
+			}
 		}
 	}
 }

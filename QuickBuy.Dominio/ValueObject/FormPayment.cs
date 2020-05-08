@@ -5,7 +5,7 @@ using System.Text;
 
 namespace QuickBuy.Dominio.ValueObject
 {
-	class FormPayment
+	public class FormPayment
 	{
 		public int Id { get; set; }
 		public string Name { get; set; }
