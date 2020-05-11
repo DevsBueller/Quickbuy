@@ -5,14 +5,15 @@ using System.Text;
 
 namespace QuickBuy.Dominio.Entities
 {
-	public class User : Entity
+	public 
+		class User : Entity
 	{
 		public int Id { get; set; }
 		public string Email { get; set; }
 		public string Password { get; set; }
 		public string Name { get; set; }
 		public string FullName { get; set; }
-		public ICollection<Order> Orders { get; set; } = new List<Order>();
+		public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 
 		protected override void Validate()
 		{

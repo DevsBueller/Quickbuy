@@ -10,6 +10,11 @@ namespace QuickBuy.Dominio.Entities
 		public int ProductId { get; set; }
 		public int Quantity { get; set; }
 
+		public OrderItem()
+		{
+			
+		}
+
 		protected override void Validate()
 		{
 			if(ProductId == 0)

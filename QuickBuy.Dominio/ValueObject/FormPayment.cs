@@ -10,6 +10,14 @@ namespace QuickBuy.Dominio.ValueObject
 		public int Id { get; set; }
 		public string Name { get; set; }
 		public string Description { get; set; }
+
+		public FormPayment(int id, string name, string description)
+		{
+			Id = id;
+			Name = name;
+			Description = description;
+		}
+
 		public bool IsBillet
 		{
 			get { return Id == (int)TypePaymentForm.Billet; }

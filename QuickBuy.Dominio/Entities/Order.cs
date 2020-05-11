@@ -12,15 +12,16 @@ namespace QuickBuy.Dominio.Entities
 		public int Id { get; set; }
 		public DateTime Date { get; set; }
 		public int UserId { get; set; }
+		public virtual User User { get; set; }
 		public DateTime DatePrevDelivery { get; set; }
 		public string CEP { get; set; }
-		public string Estate  { get; set; }
+		public string State  { get; set; }
 		public string City { get; set; }
 		public string Addres { get; set; }
 		public int AddresNumber { get; set; }
 		public int PaymentFormId { get; set; }
-		public FormPayment PaymentForm { get; set; }
-		public ICollection<OrderItem> OrdemItems { get; set; }
+		public virtual FormPayment PaymentForm { get; set; }
+		public virtual ICollection<OrderItem> OrdemItems { get; set; }
 
 		protected override void Validate()
 		{
