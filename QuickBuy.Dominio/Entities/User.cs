@@ -15,7 +15,7 @@ namespace QuickBuy.Dominio.Entities
 		public string FullName { get; set; }
 		public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 
-		protected override void Validate()
+		public override void Validate()
 		{
 			if (string.IsNullOrEmpty(Email))
 			{

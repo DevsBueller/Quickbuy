@@ -18,7 +18,7 @@ namespace QuickBuy.Dominio.Entities
 		{
 			ValidationMessages.Add(message);
 		}
-		protected abstract void Validate();
+		public abstract void Validate();
 
 		protected bool IsValid {
 			get { return ValidationMessages.Any(); }

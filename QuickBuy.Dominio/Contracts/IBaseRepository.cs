@@ -7,6 +7,7 @@ namespace QuickBuy.Dominio.Contracts
 {
 	public interface IBaseRepository<T>: IDisposable where T:class
 	{
+		void Add(T entity);
 		T GetById(int id);
 		IEnumerable<T> GetAll();
 		void Update(T entity);

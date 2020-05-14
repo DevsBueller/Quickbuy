@@ -11,9 +11,14 @@ namespace QuickBuy.Dominio.Entities
 		public string Description  { get; set; }
 		public decimal Price { get; set; }
 
-		protected override void Validate()
+		public override void Validate()
 		{
-			throw new NotImplementedException();
+			if (string.IsNullOrEmpty(Name))
+				AddCritic("Nome do produto não foi informado");
+
+			if (string.IsNullOrEmpty(Description))
+				AddCritic("Descrição não foi informado");
+
 		}
 	}
 }

@@ -15,7 +15,7 @@ namespace QuickBuy.Dominio.Entities
 			
 		}
 
-		protected override void Validate()
+		public override void Validate()
 		{
 			if(ProductId == 0)
 			{

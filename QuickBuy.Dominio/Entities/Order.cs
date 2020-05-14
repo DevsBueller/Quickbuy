@@ -23,7 +23,7 @@ namespace QuickBuy.Dominio.Entities
 		public virtual FormPayment PaymentForm { get; set; }
 		public virtual ICollection<OrderItem> OrdemItems { get; set; }
 
-		protected override void Validate()
+		public override void Validate()
 		{
 			ClearMessages();
 			if (!OrdemItems.Any())
