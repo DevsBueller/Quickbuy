@@ -1,0 +1,6 @@
+.custom-file-input:lang(en) ~ .custom-file-label::after{
+    content:"Buscar";
+}
+.title{
+    color:#666;
+}

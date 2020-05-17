@@ -12,6 +12,7 @@ namespace QuickBuy.Dominio.Contracts
 		IEnumerable<T> GetAll();
 		void Update(T entity);
 		void Remove(T entity);
+		
 
 	}
 }

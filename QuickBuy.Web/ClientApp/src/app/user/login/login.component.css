@@ -1,10 +1,10 @@
 
 
 .form-signin {
-  width: 100% !important;
-  max-width: 330px !important;
-  padding: 15px !important;
-  margin: 0 auto !important;
+  width: 100% ;
+  max-width: 330px ;
+  padding: 15px ;
+  margin: 0 auto;
 }
  .form-signin input[type="email"] {
     margin-bottom: -1px;
@@ -15,10 +15,16 @@
     position:relative;
     box-sizing:border-box;
     height:auto;
-    padding:10px;
-    font-size:16px;
+    padding:5px;
+    font-size:90%;
 
 }
 .login {
   color: #666;
+}
+.ct {
+  min-height: 80%;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
 }

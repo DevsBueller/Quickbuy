@@ -1,4 +1,4 @@
-<div class="text-center">
+<div class="text-center ct">
   <form class="form-signin">
 
 
@@ -8,11 +8,11 @@
     <label for="inputEmail" class="sr-only"> Email</label>
     <input type="email" id="inputEmail"
            name="email" placeholder="Informe o Email"
-           class="form-control mb-2"       
+           class="form-control mb-2"
            [(ngModel)]="user.email"
            #email="ngModel"
            email
-            [ngClass] ="{
+           [ngClass]="{
            'is-invalid':email.invalid && (email.dirty || email.touched),
            'is-valid':email.valid && (email.dirty || email.touched)
            }"
@@ -22,7 +22,7 @@
         Email é de preenchimento obrigatório
       </div>
       <div *ngIf="email.errors.email">
-        Email está no formato inválido 
+        Email está no formato inválido
       </div>
     </div>
 
@@ -32,20 +32,31 @@
            class="form-control mb-2"
            [(ngModel)]="user.password"
            #password="ngModel"
-            [ngClass] ="{
+           [ngClass]="{
            'is-invalid':password.invalid && (password.dirty || password.touched),
            'is-valid':password.valid && (password.dirty || password.touched)
            }"
            required />
     <div class="invalid-feedback" *ngIf="password.invalid && (password.dirty || password.touched)">
-      <div *ngIf="passwrod.errors.required">
-       A senha é de preenchimento obrigatório
+      <div *ngIf="password.errors.required">
+        A senha é de preenchimento obrigatório
       </div>
-   
+
     </div>
 
 
-    <button class="btn btn-lg btn-primary bnt-block" type="submit" (click)="login()">Entrar</button>
+    <button class="btn btn-lg btn-primary bnt-block mb-2" type="submit" (click)="login()" [disabled]="activate_spinner">
+
+      <div *ngIf="!activate_spinner">Entrar </div>
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="activate_spinner"></span>
+      <span *ngIf="activate_spinner">Loading...</span>
+
+    </button>
+    <div>Novo por aqui ?<a [routerLink]='["/new-user"]'>Cadastre-se</a></div>
+
+    <div class="alert alert-danger mb-2" *ngIf="message">
+      {{message}}
+    </div>
 
   </form>
 </div>

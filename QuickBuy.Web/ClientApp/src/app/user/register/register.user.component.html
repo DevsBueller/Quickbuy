@@ -1,0 +1,112 @@
+<div class="text-center ct">
+  <form class="form-signin  col-sm-12 col-md-7 col-lg-5 mx-auto">
+
+
+    <img class="mb-4" src="../../../assets/img/quick-logo.png" title="Logo do Site" alt="Logo do Site Quick Buy" width="72" height="72" />
+
+    <h1 class="h4 mb-3 login">Criar Conta</h1>
+    <div class="container text-center">
+      <div class="form-row">
+
+        <div class="col-md-6 mb-3">
+          <label for="inputName" class="sr-only">Nome</label>
+          <input type="text" id="inputName"
+                 name="name" placeholder="Nome"
+                 class="form-control mb-2"
+                 [(ngModel)]="user.name"
+                 #name="ngModel"
+                 [ngClass]="{
+           'is-invalid':name.invalid && (name.dirty || name.touched),
+           'is-valid':name.valid && (name.dirty || name.touched)
+           }"
+                 required />
+          <div class="invalid-feedback mb-2" *ngIf="name.invalid && (name.dirty || name.touched)">
+            <div *ngIf="name.errors.required">
+              O Nome é de preenchimento obrigatório
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="inputfullName" class="sr-only">Sobrenome</label>
+          <input type="text" id="inputfullName"
+                 name="fullName" placeholder="Sobrenome"
+                 class="form-control mb-2"
+                 [(ngModel)]="user.fullName"
+                 #fullName="ngModel"
+                 [ngClass]="{
+           'is-invalid':fullName.invalid && (fullName.dirty || fullName.touched),
+           'is-valid':fullName.valid && (fullName.dirty || fullName.touched)
+           }"
+                 required />
+          <div class="invalid-feedback mb-2" *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)">
+            <div *ngIf="fullName.errors.required">
+              O Sobrenome é de preenchimento obrigatório
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+
+        <div class="col-md-6 mb-3">
+          <label for="inputEmail" class="sr-only"> Email</label>
+          <input type="email" id="inputEmail"
+                 name="email" placeholder="Informe o Email"
+                 class="form-control mb-2"
+                 [(ngModel)]="user.email"
+                 #email="ngModel"
+                 email
+                 [ngClass]="{
+           'is-invalid':email.invalid && (email.dirty || email.touched),
+           'is-valid':email.valid && (email.dirty || email.touched)
+           }"
+                 required />
+          <div class="invalid-feedback mb-2" *ngIf="email.invalid && (email.dirty || email.touched)">
+            <div *ngIf="email.errors.required">
+              Email é de preenchimento obrigatório
+            </div>
+            <div *ngIf="email.errors.email">
+              Email está no formato inválido
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="inputPassword" class="sr-only">Senha</label>
+          <input type="password" id="inputPassword"
+                 name="password" placeholder="Senha"
+                 class="form-control mb-2"
+                 [(ngModel)]="user.password"
+                 #password="ngModel"
+                 [ngClass]="{
+           'is-invalid':password.invalid && (password.dirty || password.touched),
+           'is-valid':password.valid && (password.dirty || password.touched)
+           }"
+                 required />
+          <div class="invalid-feedback" *ngIf="password.invalid && (password.dirty || password.touched)">
+            <div *ngIf="password.errors.required">
+              A senha é de preenchimento obrigatório
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <button class="btn btn-lg btn-primary bnt-block mb-2" type="submit" (click)="register()" [disabled]="activate_spinner">
+
+      <div *ngIf="!activate_spinner">Cadastrar </div>
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="activate_spinner"></span>
+      <span *ngIf="activate_spinner">Loading...</span>
+
+    </button>
+    <div><a [routerLink]='["/login"]'>Voltar para Home</a></div>
+
+    <div class="alert alert-danger mb-2" *ngIf="message">
+      {{message}}
+    </div>
+    <div class="alert alert-success" *ngIf="userResgisted">
+      Usuário cadastrado com sucesso!<a class="alert-link" [routerLink]='["/login"]'>Login</a> 
+    </div>
+
+  </form>
+</div>

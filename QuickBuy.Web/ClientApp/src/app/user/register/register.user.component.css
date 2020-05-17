@@ -1,0 +1,22 @@
+@import url(../login/login.component.css);
+
+
+.body {
+  height: 100vh !important;
+}
+.form-signin {
+  min-width: 70% !important;
+  padding: 15px !important;
+  margin: 0 auto !important;
+}
+  .form-signin .form-control {
+ 
+    height: auto;
+    
+   
+  }
+
+.ct {
+min-height:0vh;
+}
+

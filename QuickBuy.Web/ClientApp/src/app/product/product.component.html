@@ -1,0 +1,58 @@
+<h1 class="h4 title">Cadastro de Produto</h1>
+<label for="inputName" class="sr-only">Name</label>
+<input type="text" id="inputName"
+       name="nameProduct"
+       placeholder="Nome do Produto"
+       class="form-control mb-2 col-md-4"
+       [(ngModel)]="product.name"
+       #name="ngModel"
+       [ngClass]="{'is-invalid':name.invalid && (name.dirty || name.touched),
+       'is-valid':name.valid && (name.dirty || name.touched)}"
+       required />
+<div class="invalid-feedback mb-2" *ngIf="name.invalid && (name.dirty || name.touched)">
+  <div *ngIf="name.errors.required">
+    O nome do produto é de preenchimento obrigatório
+  </div>
+</div>
+<label for="inputDescription" class="sr-only">Descrição</label>
+<input type="text" id="inputDescription"
+       name="descriptionProduct"
+       placeholder="Descrição do produto"
+       class="form-control mb-2 col-md-4"
+       [(ngModel)]="product.description"
+       #description="ngModel"
+       [ngClass]="{'is-invalid':description.invalid && (description.dirty || description.touched),
+       'is-valid':description.valid && (description.dirty || description.touched)}"
+       required />
+<div class="invalid-feedback mb-2" *ngIf="description.invalid && (description.dirty || description.touched)">
+  <div *ngIf="description.errors.required">
+    A descrição do produto é de preenchimento obrigatório
+  </div>
+</div>
+<label for="inputPrice" class="sr-only">Preço</label>
+<input type="number" id="inputPrice"
+       name="priceProduct"
+       placeholder="Preço"
+       class="form-control mb-2 col-md-2"
+       [(ngModel)]="product.price"
+       #price="ngModel"
+       [ngClass]="{'is-invalid':price.invalid && (price.dirty || price.touched),
+       'is-valid':price.valid && (price.dirty || price.touched)}"
+       required />
+<div class="invalid-feedback mb-2" *ngIf="price.invalid && (price.dirty || price.touched)">
+  <div *ngIf="price.errors.required">
+    O preço do produto é de preenchimento obrigatório
+  </div>
+</div>
+
+<div class="input-group mb-3">
+  <div class="custom-file col-md-4">
+    <input type="file" class="custom-file-input" id="inputFile" (change)="inputChange($event.target.files)">
+    <label class="custom-file-label" for="inputFile">Imagem do Produto</label>
+  </div>
+</div>
+<button class="btn btn-primary" (click)="register()" [disabled]="activate_spinner">
+  <div *ngIf="!activate_spinner">Cadastrar </div>
+  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="activate_spinner"></span>
+  <span *ngIf="activate_spinner">Loading...</span>
+</button>

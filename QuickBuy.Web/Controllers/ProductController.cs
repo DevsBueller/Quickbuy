@@ -7,6 +7,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore.Query.ExpressionTranslators.Internal;
 
 namespace QuickBuy.Web.Controllers
 {
@@ -14,9 +17,13 @@ namespace QuickBuy.Web.Controllers
 	public class ProductController : Controller
 	{
 		private readonly IProductRepository _productRepository;
-		public ProductController(IProductRepository productRepository) 
+		private IHttpContextAccessor _httpContextAccessor;
+		private IHostingEnvironment _hostingEnvironment;
+		public ProductController(IProductRepository productRepository,IHttpContextAccessor httpContextAccessor, IHostingEnvironment hostingEnvironment)
 		{
 			_productRepository = productRepository;
+			_httpContextAccessor = httpContextAccessor;
+			_hostingEnvironment = hostingEnvironment;
 		}
 		[HttpGet]
 		public IActionResult Get()
@@ -42,6 +49,24 @@ namespace QuickBuy.Web.Controllers
 			{
 
 				return BadRequest(ex.ToString());
+			}
+		}
+		[HttpPost("SendFile")]
+		public IActionResult SendFile()
+		{
+			try
+			{
+				var result = _productRepository.FormatFile();
+				if (!string.IsNullOrEmpty(result))
+				{
+					return Json(result);
+				}
+				return BadRequest("Já existe um arquivo com esse nome");
+			}
+			catch (Exception ex)
+			{
+
+				return BadRequest(ex.Message);
 			}
 		}
 	}
