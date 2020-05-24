@@ -9,8 +9,8 @@ using QuickBuy.Repositorio.Context;
 namespace QuickBuy.Repositorio.Migrations
 {
     [DbContext(typeof(QuickBuyContext))]
-    [Migration("20200510231955_FirstBaseVersion")]
-    partial class FirstBaseVersion
+    [Migration("20200517175241_FirstVersion")]
+    partial class FirstVersion
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -56,7 +56,7 @@ namespace QuickBuy.Repositorio.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Order");
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("QuickBuy.Dominio.Entities.OrderItem", b =>
@@ -86,6 +86,8 @@ namespace QuickBuy.Repositorio.Migrations
                         .IsRequired()
                         .HasMaxLength(400);
 
+                    b.Property<string>("FileName");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(70)");
@@ -94,7 +96,7 @@ namespace QuickBuy.Repositorio.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Product");
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("QuickBuy.Dominio.Entities.User", b =>
@@ -139,6 +141,26 @@ namespace QuickBuy.Repositorio.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Paymentform");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "Forma de Pagamento Boleto",
+                            Name = "Boleto"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Description = "Cartão de Crédito",
+                            Name = "Cartão de Crédito"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Description = "Forma de Depósito",
+                            Name = "Depósito"
+                        });
                 });
 
             modelBuilder.Entity("QuickBuy.Dominio.Entities.Order", b =>

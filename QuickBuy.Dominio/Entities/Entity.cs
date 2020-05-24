@@ -18,10 +18,14 @@ namespace QuickBuy.Dominio.Entities
 		{
 			ValidationMessages.Add(message);
 		}
+		public string getValidationMessage()
+		{
+			return string.Join(". ", ValidationMessages);
+		}
 		public abstract void Validate();
 
-		protected bool IsValid {
-			get { return ValidationMessages.Any(); }
+		public bool IsValid {
+			get { return !ValidationMessages.Any(); }
 		}
 
 	}

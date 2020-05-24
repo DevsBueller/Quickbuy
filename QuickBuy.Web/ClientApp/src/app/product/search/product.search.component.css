@@ -1,0 +1,16 @@
+.title {
+  color: #666;
+}
+td {
+  vertical-align: middle;
+}
+.load {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.0);
+  width: 115vh;
+  height: 70%;
+  align-items:center;
+}
+.container{
+    padding:2%;
+}

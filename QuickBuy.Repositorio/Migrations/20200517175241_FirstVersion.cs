@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace QuickBuy.Repositorio.Migrations
 {
-    public partial class FirstBaseVersion : Migration
+    public partial class FirstVersion : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -30,11 +30,12 @@ namespace QuickBuy.Repositorio.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(type: "nvarchar(70)", nullable: false),
                     Description = table.Column<string>(maxLength: 400, nullable: false),
-                    Price = table.Column<decimal>(nullable: false)
+                    Price = table.Column<decimal>(nullable: false),
+                    FileName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Product", x => x.Id);
+                    table.PrimaryKey("PK_Products", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -107,6 +108,26 @@ namespace QuickBuy.Repositorio.Migrations
                         onDelete: ReferentialAction.Restrict);
                 });
 
+            migrationBuilder.InsertData(
+                table: "Paymentform",
+                columns: new[] { "Id", "Description", "Name" },
+                values: new object[] { 1, "Forma de Pagamento Boleto", "Boleto" });
+
+            migrationBuilder.InsertData(
+                table: "Paymentform",
+                columns: new[] { "Id", "Description", "Name" },
+                values: new object[] { 2, "Cartão de Crédito", "Cartão de Crédito" });
+
+            migrationBuilder.InsertData(
+                table: "Paymentform",
+                columns: new[] { "Id", "Description", "Name" },
+                values: new object[] { 3, "Forma de Depósito", "Depósito" });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_OrderItems_OrderId",
+                table: "OrderItems",
+                column: "OrderId");
+
             migrationBuilder.CreateIndex(
                 name: "IX_Orders_PaymentFormId",
                 table: "Orders",
@@ -116,11 +137,6 @@ namespace QuickBuy.Repositorio.Migrations
                 name: "IX_Orders_UserId",
                 table: "Orders",
                 column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_OrderItems_OrderId",
-                table: "OrderItems",
-                column: "OrderId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

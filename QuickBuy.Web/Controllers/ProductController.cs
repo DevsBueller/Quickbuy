@@ -1,15 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using QuickBuy.Dominio.Contracts;
 using QuickBuy.Dominio.Entities;
-using QuickBuy.Repositorio;
-using QuickBuy.Repositorio.Context;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore.Query.ExpressionTranslators.Internal;
 
 namespace QuickBuy.Web.Controllers
 {
@@ -17,20 +9,18 @@ namespace QuickBuy.Web.Controllers
 	public class ProductController : Controller
 	{
 		private readonly IProductRepository _productRepository;
-		private IHttpContextAccessor _httpContextAccessor;
-		private IHostingEnvironment _hostingEnvironment;
-		public ProductController(IProductRepository productRepository,IHttpContextAccessor httpContextAccessor, IHostingEnvironment hostingEnvironment)
+
+		public ProductController(IProductRepository productRepository)
 		{
 			_productRepository = productRepository;
-			_httpContextAccessor = httpContextAccessor;
-			_hostingEnvironment = hostingEnvironment;
+
 		}
 		[HttpGet]
 		public IActionResult Get()
 		{
 			try
 			{
-				return Ok(_productRepository.GetAll());
+				return Json(_productRepository.GetAll());
 			}
 			catch (Exception ex)
 			{
@@ -42,13 +32,40 @@ namespace QuickBuy.Web.Controllers
 		{
 			try
 			{
-				_productRepository.Add(product);
+				product.Validate();
+				if (!product.IsValid)
+				{
+					return BadRequest(product.getValidationMessage());
+				}
+				if (product.Id > 0)
+				{
+					_productRepository.Update(product);
+				}
+				else
+				{
+					_productRepository.Add(product);
+				}
 				return Created("api/product", product);
 			}
 			catch (Exception ex)
 			{
 
 				return BadRequest(ex.ToString());
+			}
+		}
+		[HttpPost("Delete")]
+		public IActionResult Delete([FromBody]Product product)
+		{
+			try
+			{
+				// produtoi recebido do FromBody, deve ter a propriedade Id > 0
+				_productRepository.Remove(product);
+				return Json(_productRepository.GetAll());
+			}
+			catch (Exception ex )
+			{
+				return BadRequest(ex.Message);
+				
 			}
 		}
 		[HttpPost("SendFile")]

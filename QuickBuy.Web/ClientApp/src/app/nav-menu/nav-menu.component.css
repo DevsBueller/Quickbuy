@@ -3,6 +3,9 @@ a.navbar-brand {
   text-align: center;
   word-break: break-all;
 }
+.navbar{
+    padding:0px;
+}
 
 html {
   font-size: 14px;
@@ -12,7 +15,9 @@ html {
     font-size: 16px;
   }
 }
-
+.bg-blue {
+  background-color: #083b66 !important;
+}
 .box-shadow {
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }

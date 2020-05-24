@@ -40,7 +40,7 @@ namespace QuickBuy.Repositorio
 
 		public void Update(T entity)
 		{
-			QuickBuyContext.Set<T>().Add(entity);
+			QuickBuyContext.Set<T>().Update(entity);
 			QuickBuyContext.SaveChanges();
 		}
 		public void Dispose()

@@ -2,12 +2,13 @@
   <form class="form-signin">
 
 
-    <img class="mb-4" src="../../../assets/img/quick-logo.png" title="Logo do Site" alt="Logo do Site Quick Buy" width="72" height="72" />
-    <h1 class="h4 mb-2 login content">Buy It </h1>
 
+    <img class="mb-4" src="../../../assets/img/logo/logo.png" title="Logo do Site" alt="Logo do Site Quick Buy" width="auto" height="auto">
     <label for="inputEmail" class="sr-only"> Email</label>
     <input type="email" id="inputEmail"
            name="email" placeholder="Informe o Email"
+
+           autofocus=""
            class="form-control mb-2"
            [(ngModel)]="user.email"
            #email="ngModel"
@@ -45,7 +46,7 @@
     </div>
 
 
-    <button class="btn btn-lg btn-primary bnt-block mb-2" type="submit" (click)="login()" [disabled]="activate_spinner">
+    <button class="btn btn-lg btn-primary btn-block mb-2" type="submit" (click)="login()" [disabled]="activate_spinner">
 
       <div *ngIf="!activate_spinner">Entrar </div>
       <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="activate_spinner"></span>

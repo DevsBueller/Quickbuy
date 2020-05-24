@@ -48,6 +48,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="ClientApp\src\assets\img\logo\" />
+    <Folder Include="ClientApp\src\assets\img\slide\" />
     <Folder Include="wwwroot\files\" />
   </ItemGroup>
 

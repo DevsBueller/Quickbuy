@@ -51,8 +51,18 @@
     <label class="custom-file-label" for="inputFile">Imagem do Produto</label>
   </div>
 </div>
-<button class="btn btn-primary" (click)="register()" [disabled]="activate_spinner">
-  <div *ngIf="!activate_spinner">Cadastrar </div>
-  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="activate_spinner"></span>
-  <span *ngIf="activate_spinner">Loading...</span>
-</button>
+<div class="form-row">
+  <div class="col-auto my-1">
+    <button class="btn btn-primary" (click)="register()" [disabled]="activate_spinner">
+      <div *ngIf="!activate_spinner">Cadastrar </div>
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="activate_spinner"></span>
+      <span *ngIf="activate_spinner">Loading...</span>
+    </button>
+  </div>
+  <div class="col-auto my-1">
+    <button class="btn btn-secondary" (click)="register()" [routerLink]="['/product-search']" [disabled]="activate_spinner">Cancelar</button>
+  </div>
+</div>
+<div class="alert alert-danger cokl-md-4" *ngIf="message">
+  {{message}}
+</div>

@@ -26,22 +26,29 @@ export class ProductComponent implements OnInit{// Nome das classes começando c
   }
 
   ngOnInit(): void {
-    this.product = new Product();
+    var productSession = sessionStorage.getItem('productSession');
+    if (productSession) {
+      this.product = JSON.parse(productSession);
+      sessionStorage.clear();
+
+    } else {
+      this.product = new Product();
+    }
 
   }
   public inputChange(files: FileList) {
     this.selectedFile = files.item(0);
-    this.activate_spinner = true;
+    this.activateLoading();
     this.productService.sendFile(this.selectedFile).subscribe(
       fileName => {
         this.product.fileName = fileName;
-        alert(this.product.fileName);
+       
         console.log(fileName);
-        this.activate_spinner = false;
+        this.desactivateLoading();
       },
       e => {
         console.log(e.error)
-        this.activate_spinner = false;
+        this.desactivateLoading();
       }
         
     );
@@ -51,7 +58,8 @@ export class ProductComponent implements OnInit{// Nome das classes começando c
     this.productService.register(this.product)
       .subscribe(
         productJson => {
-          console.log(productJson);        
+          console.log(productJson);
+          this.router.navigate(['product-search']);
         },
         e => {
           console.log(e.error);
@@ -59,5 +67,11 @@ export class ProductComponent implements OnInit{// Nome das classes começando c
 
         }
       );
+  }
+  public activateLoading() {
+    this.activate_spinner = true;
+  }
+  public desactivateLoading() {
+    this.activate_spinner = false;
   }
 }

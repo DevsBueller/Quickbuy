@@ -1,0 +1,18 @@
+
+.caption-group{
+    display:inline-grid;
+}
+.card-top{
+ 
+    margin:auto;
+}
+.card{
+    padding-top:2%;
+}
+.load {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.0);
+  width: 115vh;
+  height: 70%;
+  align-items: center;
+}

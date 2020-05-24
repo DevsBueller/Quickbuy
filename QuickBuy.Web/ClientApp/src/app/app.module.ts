@@ -13,6 +13,11 @@ import { RegisterUserComponent } from './user/register/register.user.component';
 //import { RoutesGuard } from './authorization/routes-guard';
 import { UserService } from './services/user/user.service';
 import { ProductService } from './services/product/product.service';
+import { ProductSearchComponent } from './product/search/product.search.component';
+import { StoreSearchComponent } from './store/search/store.search.component';
+import { TruncateModule } from "ng2-truncate"
+import { StoreProductComponent } from './store/product/store.product.component';
+
 
 
 @NgModule({
@@ -22,13 +27,17 @@ import { ProductService } from './services/product/product.service';
     HomeComponent,
     ProductComponent,
     LoginComponent,
-    RegisterUserComponent
+    RegisterUserComponent,
+    ProductSearchComponent,
+    StoreSearchComponent,
+    StoreProductComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    TruncateModule,
 
 
   
@@ -36,7 +45,8 @@ import { ProductService } from './services/product/product.service';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'product', component: ProductComponent/*, canActivate: [RoutesGuard] */},
       { path: 'login', component: LoginComponent },
-      { path: 'new-user', component: RegisterUserComponent }
+      { path: 'new-user', component: RegisterUserComponent },
+      { path: 'product-search', component: ProductSearchComponent }
     ])
   ],
   providers: [UserService, ProductService],

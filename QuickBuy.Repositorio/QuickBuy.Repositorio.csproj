@@ -5,6 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200510231955_FirstBaseVersion.cs" />
+    <Compile Remove="Migrations\20200510231955_FirstBaseVersion.Designer.cs" />
+    <Compile Remove="Migrations\20200511005941_CargaFormaPagamento.cs" />
+    <Compile Remove="Migrations\20200511005941_CargaFormaPagamento.Designer.cs" />
+    <Compile Remove="Migrations\20200517174500_NovaColunaProdutoNomeArquivo.cs" />
+    <Compile Remove="Migrations\20200517174500_NovaColunaProdutoNomeArquivo.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\QuickBuy.Dominio\QuickBuy.Dominio.csproj" />
   </ItemGroup>
 
