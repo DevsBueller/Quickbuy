@@ -29,7 +29,7 @@ export class ProductComponent implements OnInit{// Nome das classes começando c
     var productSession = sessionStorage.getItem('productSession');
     if (productSession) {
       this.product = JSON.parse(productSession);
-      sessionStorage.clear();
+      sessionStorage.setItem('productSession', '');
 
     } else {
       this.product = new Product();

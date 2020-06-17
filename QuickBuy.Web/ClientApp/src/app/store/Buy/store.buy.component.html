@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row mb-4 czVqRW" style="margin: 6px 12px;">Minha Cesta</div>
+  <div class="row ">
+
+    <div class="col-md-8  ">
+
+      <div class=" card table-responsive-xl bg-white basket-summary">
+        <table class="table table-rover borderless">
+          <thead  class=" table-bordeless">
+            <tr>
+              <th></th>
+              <th>Produto</th>
+              <th>qtd</th>
+              <th>Preço</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let p of products">
+              <td style="width:25%;"><img class="width" src="..\..\..\..\..\files\{{ p.fileName}}" /> </td>
+              <td style="width:55%;">{{p.name}}</td>
+              <td style="width:14%;">
+                <input type="number" class="form-control w-100" value="1" (change)="updatePrice(p, $event.target.value)"
+                                            [(ngModel)] ="p.quantity" placeholder="1" />
+              </td>
+              <td style="width:5%;">{{p.price | currency:'BRL'}}</td>
+              <td><button class="btn btn-secondary btn-sm" (click)="remove(p)">Remover</button></td>
+
+
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-md-4 " style="  box-sizing:border-box;">
+      <div class="row">
+        <div class="container">
+          <div class="card basket-summary w-100 ">
+            <div>
+              <h5 class="h5 title">Resumo do pedido</h5>
+            </div>
+
+            <div class="card-body ">
+              <table price>
+                <tr>
+                  <td class="total w-20 ">
+                    Total
+                  </td>
+                  <td style="text-align: end;" class="total w-100 ">
+                    {{total | currency:'BRL'}}
+                  </td>
+                </tr>
+              </table>
+              <hr />
+              <button class="summary-buy btn btn btn-danger btn-block btn-buy  btn-fat" (click)="buyProduct()">Finalizar Compra</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -16,6 +16,7 @@
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="2.2.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.4" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.2.0" />
   </ItemGroup>
 
@@ -30,7 +31,9 @@
     <None Remove="ClientApp\src\app\authorization\routes-guard.ts" />
     <None Remove="ClientApp\src\app\model\user.ts" />
     <None Remove="ClientApp\src\app\product\product.component.ts" />
+    <None Remove="ClientApp\src\app\services\order\order.service.ts" />
     <None Remove="ClientApp\src\app\services\user\user.service.ts" />
+    <None Remove="ClientApp\src\app\store\Buy\store.buy.success.component.ts" />
     <None Remove="ClientApp\src\app\user\login\login.component.ts" />
     <None Remove="ClientApp\src\app\user\login\LoginComponent.ts" />
   </ItemGroup>
@@ -43,7 +46,9 @@
     <TypeScriptCompile Include="ClientApp\src\app\authorization\routes-guard.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\model\user.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\product\product.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\services\order\order.service.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\services\user\user.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\store\Buy\store.buy.success.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\user\login\login.component.ts" />
   </ItemGroup>
 

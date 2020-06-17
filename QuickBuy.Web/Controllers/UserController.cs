@@ -40,6 +40,7 @@ namespace QuickBuy.Web.Controllers
 				{
 					return BadRequest("O usuário já existe na base de dados");
 				}
+		
 				_userRepository.Add(user);
 				return Ok();
 			}

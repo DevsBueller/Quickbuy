@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
       user_json => {
         // essa linha será executada no cso de retorno sem erros 
 
-        this.userService.user = user_json
+        this.userService.user = user_json;
 
         if (this.returnUrl == null) {
           this.router.navigate(['/'])

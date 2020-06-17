@@ -1,0 +1,61 @@
+.summary-buy {
+  margin-top: 26px;
+  font-size: 16px;
+  font-family: inherit;
+  font-weight: 700 !important;
+
+}
+tr > td {
+  color: #666;
+  vertical-align: middle;
+  font-weight:bold;
+}
+.width{
+    width:80%;
+}
+.btn-buy {
+  border-radius: 0;
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+}
+.basket-summary {
+ 
+  padding: 11px 1.6rem 2.6rem;
+
+  -webkit-transition: opacity .3s ease;
+  transition: opacity .3s ease;
+}
+.title {
+  text-align: center;
+  font-family: inherit;
+  font-weight: 700;
+  line-height: 1.1;
+  color: #666;
+}
+.total {
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.price {box
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-bottom: 1px solid;
+}
+.czVqRW {
+  flex-direction: row;
+  font-size: 11%;
+  display: inline-block;
+  word-break: break-word;
+  line-height: 1.4;
+  font-family: Helvetica, Arial, sans-serif;
+  color: rgb(102, 102, 102);
+  font-weight: bold;
+  font-size: 27px;
+  text-transform: lowercase;
+  margin: 0px;
+  padding: 0px;
+}
+ .borderless th {
+  border-top: none;
+}

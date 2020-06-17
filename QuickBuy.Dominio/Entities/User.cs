@@ -13,6 +13,7 @@ namespace QuickBuy.Dominio.Entities
 		public string Password { get; set; }
 		public string Name { get; set; }
 		public string FullName { get; set; }
+		public bool Administrator { get; set; }
 		public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 
 		public override void Validate()

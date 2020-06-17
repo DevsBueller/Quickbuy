@@ -1,0 +1,61 @@
+
+<div class="row mb-4">
+  <div class="  col-md-9 bg-white gvdckS">
+    <div class="row">
+      <div class=" col-md-6  ">
+        <img class="w-100 mb-3" src="..\..\..\..\..\files\{{ product.fileName}}" />
+      </div>
+      <div class=" col-md-6 ">
+        <div class="row mb-4 ">
+          <h1 class="hCKbLB kSKgXt" style="color:#666;">{{product.name}}</h1>
+        </div>
+        <div class="row mb-4 ">
+          <p>{{product.description}}</p>
+        </div>
+        <hr />
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 gvdckS">
+    <div class="row">
+
+      <div style="padding-bottom: 80%;" class="card basket-summary w-100 ">
+
+        <div class="card-body ">
+
+          <h1 class="h3 bold">{{product.price | currency:'BRL'}}</h1>
+          <p class="mb-3">
+            em até 12x sem juros no cartão de crédito com Ame e receba R$ 37,99 (1% de volta)
+          </p>
+          <p>
+            {{product.price}} em até 24x sem juros no cartão Americanas com Ame e receba R$ 37,99 (1% de volta)
+          </p>
+          <hr />
+          <button class="summary-buy btn btn btn-danger btn-block btn-buy  btn-fat" (click)="buy()">Comprar</button>
+
+          <hr />
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div style="padding:2%;"class=" row bg-white card ">
+
+
+  <div class="col-md-12  ">
+  
+      <div class="row">
+        <h3 class=" hCKbLB kSKgXt2" style="color:#666;">Descrição do produto</h3>
+      </div>
+      <div class="row">
+        {{product.description}}
+      </div>
+  
+
+  </div>
+</div>

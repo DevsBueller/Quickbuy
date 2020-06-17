@@ -4,5 +4,7 @@ export class Product {
   name: string;
   description: string;
   price: number;
-  fileName:string;
+  fileName: string;
+  originalPrice: number;
+  quantity: number;
 }

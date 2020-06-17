@@ -5,6 +5,7 @@ export class User {
   password:string;
   name: string;
   fullName: string;
+  administrator: boolean;
 
 
 }

@@ -2,7 +2,7 @@
   <nav class='navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-blue border-bottom box-shadow mb-3'>
     <div class="container">
       <a class="navbar-brand" [routerLink]='["/"]'>
-        <img  src="../../../assets/img/logo/logo2.png" title="Logo do Site" alt="Logo do Site Quick Buy" width="auto" height="50" />
+        <img  src="../../../assets/img/logo/logo2.png" title="Logo do Site" alt="Logo do Site Quick Buy"  height="50" />
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-label="Toggle navigation"
               [attr.aria-expanded]="isExpanded" (click)="toggle()">
@@ -10,23 +10,30 @@
       </button>
       <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" [ngClass]='{"show": isExpanded}'>
         <ul class="navbar-nav flex-grow">
-          <li class="nav-item" [routerLinkActive]='["link-active"]'>
+          <li class="nav-item" [routerLinkActive]='["link-active"]' *ngIf="user_administrator()">
             <a class="nav-link text-white" [routerLink]='["/product-search"]'>Product</a>
           </li>
           <li class="nav-item" [routerLinkActive]='["link-active"]' *ngIf="!userLogged()">
 
-            <a class="nav-link text-white" [routerLink]='["/login"]'><img class="navbar-toggler-icon " src="../../../assets/img/user.png" title="Logo do Site" alt="Logo do Site Quick Buy" width="auto" height="auto" /> Entrar</a>
-          
+            <a class="nav-link text-white" [routerLink]='["/login"]'><img class="navbar-toggler-icon " src="../../../assets/img/user.png" title="Logo do Site" alt="Logo do Site Quick Buy" /> Entrar</a>
+
           </li>
+
           <li class="nav-item dropdown" *ngIf="userLogged()">
-            <a class="nav-link dropdown-toggle text-white" role="button" aria-haspopup="true" href="" aria-expanded="false" id="linkMenu" data-toggle="dropdown"> Olá {{user.name}}</a>
+            <a style="margin:0px;" class="nav-link dropdown-toggle text-white" role="button" aria-haspopup="true" href="" aria-expanded="false" id="linkMenu" data-toggle="dropdown"> Olá {{user.name}}</a>
             <ul class="dropdown-menu" aria-labelledby="linkMenu">
               <li class="dropdown-item" role="menu" [routerLink]='["/logout"]' (click)="logout()">Sair</li>
             </ul>
           </li>
+          <li class="nav-item" [routerLinkActive]='["link-active"]' *ngIf="existItensShoppingCart()">
+            <a class="nav-link text-white" [routerLink]='["/store-buy"]'>
+              <img src="../../../assets/img/cart.png" title="Logo do Site" alt="Logo do Site Quick Buy" height="30" />
+            </a>
+
+          </li>
           <!--<li class="nav-item" [routerLinkActive]='["link-active"]' *ngIf="userLoged()">
-        <a class=" nav-item nav-link text-dark" [routerLink]='["/logout"]' (click) ="logout()"></a>
-      </li>-->
+    <a class=" nav-item nav-link text-dark" [routerLink]='["/logout"]' (click) ="logout()"></a>
+  </li>-->
         </ul>
       </div>
     </div>

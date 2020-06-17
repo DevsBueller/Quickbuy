@@ -24,6 +24,9 @@ export class UserService {
   public user_authenticated(): boolean {
     return this._user != null && this._user.email != "" && this._user.password != "";
   }
+  public user_administrator(): boolean {
+    return this.user_authenticated() && this.user.administrator;
+  }
   public clean_session() {
     sessionStorage.setItem("user-authenticated", "");
     this._user = null;
