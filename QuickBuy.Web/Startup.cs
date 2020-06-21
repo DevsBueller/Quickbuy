@@ -80,7 +80,8 @@ namespace QuickBuy.Web
 
 				if (env.IsDevelopment())
 				{
-					spa.UseAngularCliServer(npmScript: "start");
+					//ccUseAngularCliServer(npmScript: "start");
+					spa.UseProxyToSpaDevelopmentServer("http://localhost:5001/");
 				}
 			});
 		}
